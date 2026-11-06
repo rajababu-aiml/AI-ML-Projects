@@ -4,11 +4,9 @@ import streamlit as st
 
 st.title("Flight Price Prediction Live Demo")
 
-# Model ka sahi path set karna taaki Streamlit Cloud par error na aaye
+# Model ko secure tarike se load karne ke liye path
 model_path = os.path.join(os.path.dirname(__file__), "flight_model.pkl")
-
-with open(model_path, "rb") as f:
-    model = pickle.load(f)
+model = pickle.load(open(model_path, "rb"))
 
 st.write("Model successfully loaded! Yahan aapke inputs aayenge.")
 
